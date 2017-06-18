@@ -1,0 +1,17 @@
+{
+  "manifest_version": 2,
+  "name": "Schedule Helper",
+  "version": "1.0",
+  "description": "Finds conflicts in your schedule, so you don't have to.",
+ 	"content_scripts": [ 
+ 		{
+ 			"matches": [
+ 				"https://my.ucdavis.edu/schedulebuilder/index.cfm?termCode=*"
+ 			],
+ 			"js": ["jquery-3.2.1.js","content.js"]
+ 		}
+ 	] ,
+ 	"browser_action" : {
+ 		"default_icon": "calendar.png"
+ 	}
+}
