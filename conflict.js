@@ -1,5 +1,6 @@
 var selectedSchedule = [];
 var finals = [];
+var ratings = null;
 
 function Course(name, times, days){
 	this.name = name;
@@ -24,7 +25,7 @@ function Final(date, time){
 	this.startTime = convertTime(time);
 	this.endTime = this.startTime + 200;
 	this.conflicts = function(final2){
-		return this.date == final2.date && 
+		return this.date == final2.date &&
 		this.startTime <= final2.endTime && this.endTime >= final2.startTime;
 	}
 }
@@ -95,22 +96,72 @@ $(document).ready(function(){
 		oldInline();
 		findConflicts("#inlineCourseResultsDiv");
 	}
+
+	$.ajax({
+			'async': false,
+			'global': false,
+			'url': "https://crossorigin.me/http://104.236.158.81/api/rateapi/index.php",
+			'dataType': "json",
+			'success': function (data) {
+					ratings = data;
+			}
+	});
+
+
+	console.log(ratings);
 });
+
+// This function will insert the ratings into the results.
+function insertRating(element, meetings)
+{
+	// Starts the process to find the prof link and ratings;
+	var professor = element.find(".data-item-long.active").find(".data-row.clearfix").find(".float-left").find(".clearfix").find(".data-column")[4].childNodes[0];
+	if (professor.innerText != undefined){
+		var fullname = professor.innerText.replace(/\./g,' ').split(/[ ,]+/); // Gets the professor name and splits it up into FIrst and Last Name.
+		var first = fullname[0], last = fullname[1];
+		if (ratings[last][first] == undefined) return;
+		professor.href = "http://www.ratemyprofessors.com/ShowRatings.jsp?tid=" + ratings[last][first]['url']; // Replaces mailing link with ratemyprofessor link.
+		professor.setAttribute('target', "_blank");
+
+		if ($(meetings[0]).children()[4].style.width != "16%"){ // Creates the Overall Rating Div.
+			$(meetings[0]).children()[4].style.width = "16%";
+			$(meetings[0]).append('<div class="data-column" style="width: 8%;">Overall: '+ ratings[last][first]['quality'] +'</div>');
+		}
+
+		if ($(meetings[1]).children()[4].style.width != "16%"){// Creates the Difficulty Rating Div.
+			$(meetings[1]).children()[4].style.width = "16%";
+			$(meetings[1]).append('<div class="data-column" style="width: 8%;">Difficulty: '+ ratings[last][first]['diff'] +'</div>');
+		}
+
+		if (meetings.length == 4){ // Will create a bottom div for the rating if it does not have it. Specifcally for classes with only lectures.
+			$(meetings[0]).parent().append('<div class="data-row clearfix"><div class="data-column" style="width:12%;">&nbsp;</div><div class="data-column" style="width:28%;">&nbsp;</div><div class="data-column" style="width:15%;">&nbsp;</div><div class="data-column" style="width:20%;">&nbsp;</div><div class="data-column" style="width: 16%;">&nbsp;</div><div class="data-column" style="width: 8%;">Difficulty: '+ ratings[last][first]['diff'] +'</div></div>');
+		}
+	}
+
+}
 
 //This is the main function: Marks the classes that conflict with your currently selected schedule
 function findConflicts(divName){
 	var loop = setInterval(function(){
 		var searchResults = $(divName).children();
+		//console.log(searchResults.children()[0]);
 		if(searchResults.length){
+			var header = document.getElementsByClassName('data-column column-header align-left');
+			if (header[5].style.width != "10%") { // If the ratings label has not been added, add the raings label.
+				header[5].style.width = "10%";
+				header[5].parentNode.innerHTML += '<div class="data-column column-header align-left" style="width:8%;">Rating(s):</div>';
+			}
 			searchResults.each(function(){ //For every class in search results
+				var meetings = $(this).find(".meetings").children();
+				if(!(meetings.length)) return; // Checks if the results returned any classes.
+				insertRating($(this), meetings); // Calls function to insert the rating into the meetings HTML element.
 				//Check if its in your schedule
 				if(inSchedule(this)){
 					$(this).css({"background-color":"#cfe4ff"}); //Change to blue
-					return; //Continue	
+					return; //Continue
 				}
 				var conflicts = false;
-				var meetings = $(this).find(".meetings").children();
-				for(var i = 0; ($(meetings[i]).children()[1]) && !conflicts; i++){ //Check every meeting (lecture, discussion, lab)					
+				for(var i = 0; ($(meetings[i]).children()[1]) && !conflicts; i++){ //Check every meeting (lecture, discussion, lab)
 					var times = $(meetings[i]).children()[1].innerHTML;
 					var days = $(meetings[i]).children()[2].innerHTML;
 					var potential = new Course("", times, days);
@@ -139,7 +190,7 @@ function findConflicts(divName){
 	}, 25);
 }
 
-//Adds a tooltip to display which class conflicts 
+//Adds a tooltip to display which class conflicts
 function addTooltip(element, conflictName){
 	var title = $(element).find(".data-column.title")[1];
 	$(title).attr("data-balloon", "Conflicts with: " + conflictName);
@@ -161,7 +212,7 @@ function inSchedule(listing){
 	var title = $(listing).find(".data-column.title")[1].innerHTML;
 	for(var i = 0; i < selectedSchedule.length; i++){
 		if(selectedSchedule[i].name.includes(title)){
-			return true;				
+			return true;
 		}
 	}
 	return false;
