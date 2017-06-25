@@ -144,7 +144,6 @@ function insertRating(element, meetings)
 function findConflicts(divName){
 	var loop = setInterval(function(){
 		var searchResults = $(divName).children();
-		//console.log(searchResults.children()[0]);
 		if(searchResults.length){
 			var header = document.getElementsByClassName('data-column column-header align-left');
 			if (header[5].style.width != "10%") { // If the ratings label has not been added, add the raings label.
