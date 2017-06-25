@@ -113,7 +113,7 @@ function insertRating(element, meetings)
 {
 	// Starts the process to find the prof link and ratings;
 	var professor = element.find('a[href^="mailto:"]')[0];
-	if (professor.innerText != undefined){
+	if (professor){
 		var fullname = professor.innerText.replace(/\./g,' ').split(/[ ,]+/); // Gets the professor name and splits it up into FIrst and Last Name.
 		var first = fullname[0], last = fullname[1];
 		if (ratings[last][first] == undefined) return;
