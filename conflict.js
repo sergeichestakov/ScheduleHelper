@@ -45,7 +45,7 @@ $(document).ready(function(){
 	//Preload your schedule into an array
 	loadSchedule();
 
-	//Overwrite the main functions in Schedule Builder API
+	//Overwrite the main functions in Schedule Builder API.
 	var oldDrop = getDropCourseConfirmation;
 	getDropCourseConfirmation = function(courseID,ThisButton,ThisFunction,source){
 		oldDrop(courseID,ThisButton,ThisFunction,source);
