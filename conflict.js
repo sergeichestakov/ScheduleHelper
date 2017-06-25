@@ -140,7 +140,7 @@ function insertRating(element, meetings)
 
 }
 
-//This is the main function: Marks the classes that conflict with your currently selected schedule
+//This is the main function: Marks the classes that conflict with your currently selected schedule.
 function findConflicts(divName){
 	var loop = setInterval(function(){
 		var searchResults = $(divName).children();
