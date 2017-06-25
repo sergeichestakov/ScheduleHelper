@@ -1,7 +1,7 @@
 <?php
 $servername = "localhost";
 $username = "root";
-$password = "XXXpussyslayerXXX";
+$password = "Password";
 $dbname = "ucd";
 
 // Create connection
