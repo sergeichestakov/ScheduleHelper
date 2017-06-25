@@ -115,7 +115,8 @@ $(document).ready(function(){
 function insertRating(element, meetings)
 {
 	// Starts the process to find the prof link and ratings;
-	var professor = element.find(".data-item-long.active").find(".data-row.clearfix").find(".float-left").find(".clearfix").find(".data-column")[4].childNodes[0];
+	var professor = element.find('a[href^="mailto:"]')[0];
+	console.log(professor);
 	if (professor.innerText != undefined){
 		var fullname = professor.innerText.replace(/\./g,' ').split(/[ ,]+/); // Gets the professor name and splits it up into FIrst and Last Name.
 		var first = fullname[0], last = fullname[1];
