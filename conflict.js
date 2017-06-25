@@ -113,10 +113,10 @@ function insertRating(element, meetings)
 {
 	// Starts the process to find the prof link and ratings;
 	var professor = element.find('a[href^="mailto:"]')[0];
-	if (professor != undefined){
+	if (professor){
 		var fullname = professor.innerText.replace(/\./g,' ').split(/[ ,]+/); // Gets the professor name and splits it up into FIrst and Last Name.
 		var first = fullname[0], last = fullname[1];
-		if (ratings[last][first] === "undefined") return;
+		if (!ratings[last] || !ratings[last][first]){return;}
 		professor.href = "http://www.ratemyprofessors.com/ShowRatings.jsp?tid=" + ratings[last][first]['url']; // Replaces mailing link with ratemyprofessor link.
 		professor.setAttribute('target', "_blank");
 
@@ -145,12 +145,14 @@ function findConflicts(divName){
 			var header = document.getElementsByClassName('data-column column-header align-left');
 			if (header[5].style.width != "10%") { // If the ratings label has not been added, add the raings label.
 				header[5].style.width = "10%";
-				header[5].parentNode.innerHTML += '<div class="data-column column-header align-left" style="width:8%;">Rating(s):</div>';
+				header[5].parentNode.innerHTML += '<div class="data-column column-header align-left" style="width:8%;">Ratings:</div>';
 			}
 			searchResults.each(function(){ //For every class in search results
 				var meetings = $(this).find(".meetings").children();
-				if(!(meetings.length)) return; // Checks if the results returned any classes.
-				insertRating($(this), meetings); // Calls function to insert the rating into the meetings HTML element.
+				// Checks if the results returned any classes.
+				if(meetings.length){
+					insertRating($(this), meetings); // Calls function to insert the rating into the meetings HTML element.
+				}
 				//Check if its in your schedule
 				if(inSchedule(this)){
 					$(this).css({"background-color":"#cfe4ff"}); //Change to blue
