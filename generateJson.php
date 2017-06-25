@@ -1,7 +1,7 @@
 <?php
 $servername = "localhost";
 $username = "root";
-$password = "Password";
+$password = "cows4life";
 $dbname = "ucd";
 
 // Create connection
