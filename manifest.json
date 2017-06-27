@@ -3,7 +3,7 @@
   "name": "Schedule Helper",
   "version": "1.0",
   "description": "Finds conflicts in your schedule, so you don't have to.",
-  "web_accessible_resources" : ["conflict.js", "balloon.min.css"],
+  "web_accessible_resources" : ["conflict.js", "balloon.min.css", "inlineSearch.js", "textSearch.js"],
  	"content_scripts": [ 
  		{
  			"matches": [

@@ -1,6 +1,7 @@
-
 $(document).ready(function(){
 	injectScript("conflict.js");
+	injectScript("inlineSearch.js");
+	injectScript("textSearch.js");
 	injectCSS("balloon.min.css");
 });
 
