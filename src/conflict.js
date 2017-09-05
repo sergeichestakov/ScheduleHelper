@@ -19,7 +19,7 @@ Course.prototype.conflicts = function(class2){ //Check if two classes conflict
 		var sameDay = class2.days.includes(this.days.charAt(day));
 		var sameTime = this.start <= class2.end && this.end >= class2.start;
 		if(sameDay && sameTime){
-			return class2.name; 
+			return class2.name;
 		}
 	}
 	return false;
@@ -99,8 +99,8 @@ $(document).ready(function(){
 			header[11].parentNode.innerHTML += '<div class="data-column column-header align-left" style="width:8%;">Ratings:</div>';
 		}
 	}
-	
-	
+
+
 	var oldInline = UCD.SAOT.COURSES_SEARCH_INLINE.textSearch;
 	UCD.SAOT.COURSES_SEARCH_INLINE.textSearch = function(){
 		oldInline();
@@ -115,7 +115,7 @@ $(document).ready(function(){
 	$.ajax({
 			'async': true,
 			'global': false,
-			'url': "https://crossorigin.me/http://104.236.158.81/api/rateapi/index.php",
+			'url': "https://schedulehelper.info/api/rateapi/index.php",
 			'dataType': "json",
 			'success': function (data) {
 					ratings = data;

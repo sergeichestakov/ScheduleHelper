@@ -4,7 +4,7 @@
   "version": "1.0",
   "description": "Finds conflicts in your schedule, so you don't have to.",
   "web_accessible_resources" : ["src/conflict.js", "libs/balloon.min.css", "src/inlineSearch.js", "src/textSearch.js"],
- 	"content_scripts": [ 
+ 	"content_scripts": [
  		{
  			"matches": [
  				"https://my.ucdavis.edu/schedulebuilder/index.cfm?termCode=*"
@@ -13,6 +13,8 @@
  		}
  	],
  	"browser_action" : {
- 		"default_icon": "assets/calendar.png"
+ 		"default_icon": "assets/schedulehelper.png",
+    "default_title": "Schedule Helper",
+    "default_popup": "popup/popup.html"
  	}
 }
