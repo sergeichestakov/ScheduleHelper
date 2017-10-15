@@ -15,6 +15,6 @@
  	"browser_action" : {
  		"default_icon": "assets/schedulehelper.png",
     "default_title": "Schedule Helper",
-    "default_popup": "popup/popup.html"
+    "default_popup": "popup.html"
  	}
 }
