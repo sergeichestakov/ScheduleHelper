@@ -3,16 +3,18 @@
   "name": "Schedule Helper",
   "version": "1.0",
   "description": "Finds conflicts in your schedule, so you don't have to.",
-  "web_accessible_resources" : ["conflict.js", "balloon.min.css", "inlineSearch.js", "textSearch.js"],
- 	"content_scripts": [ 
+  "web_accessible_resources" : ["src/conflict.js", "libs/balloon.min.css", "src/inlineSearch.js", "src/textSearch.js"],
+ 	"content_scripts": [
  		{
  			"matches": [
  				"https://my.ucdavis.edu/schedulebuilder/index.cfm?termCode=*"
  			],
- 			"js": ["jquery-3.2.1.min.js","inject.js"]
+ 			"js": ["libs/jquery-3.2.1.min.js","src/inject.js"]
  		}
  	],
  	"browser_action" : {
- 		"default_icon": "calendar.png"
+ 		"default_icon": "assets/schedulehelper.png",
+    "default_title": "Schedule Helper",
+    "default_popup": "popup.html"
  	}
 }
