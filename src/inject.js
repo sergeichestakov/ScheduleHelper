@@ -1,4 +1,5 @@
 $(document).ready(function(){
+	injectScript("src/data.js");
 	injectScript("src/conflict.js");
 	injectScript("src/inlineSearch.js");
 	injectScript("src/textSearch.js");
