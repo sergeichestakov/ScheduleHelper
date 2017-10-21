@@ -324,7 +324,7 @@ UCD.SAOT.COURSES_SEARCH_INLINE.textSearch_success = function SAOTtextSearch_succ
 							if(UCD.SAOT.Util.JSON2CFQueryLookup(instructors,j,"EMAIL")!=""){
 								// Replaces mailing link with ratemyprofessor link if available (Schedule Helper)
 								var first = UCD.SAOT.Util.JSON2CFQueryLookup(instructors,j,"FIRST_NAME").substr(0,1);
-								var last = UCD.SAOT.Util.JSON2CFQueryLookup(instructors,j,"LAST_NAME");
+								var last = UCD.SAOT.Util.JSON2CFQueryLookup(instructors,j,"LAST_NAME").replace('-',' ');
 								var link;
 								if (ratings && ratings[last] && ratings[last][first]){
 									link = "<a href=\"http://www.ratemyprofessors.com/ShowRatings.jsp?tid=" + ratings[last][first]['url'] + "\" target=\"_blank\">";
@@ -483,7 +483,7 @@ UCD.SAOT.COURSES_SEARCH_INLINE.textSearch_success = function SAOTtextSearch_succ
 					var first = last = "";
 					if(instructors && instructors.DATA.length == 1){
 						first = UCD.SAOT.Util.JSON2CFQueryLookup(instructors,0,"FIRST_NAME").substr(0,1);
-						last = UCD.SAOT.Util.JSON2CFQueryLookup(instructors,0,"LAST_NAME");
+						last = UCD.SAOT.Util.JSON2CFQueryLookup(instructors,0,"LAST_NAME").replace('-',' ');
 					}
 
 					var appendOverall = appendDifficulty = false;
