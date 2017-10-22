@@ -12,6 +12,11 @@
  			"js": ["libs/jquery-3.2.1.min.js","src/inject.js"]
  		}
  	],
+  "icons": {
+    "16": "assets/schedulehelper.png",
+    "48": "assets/schedulehelper.png",
+    "128": "assets/schedulehelper.png"
+  },
  	"browser_action" : {
  		"default_icon": "assets/schedulehelper.png",
     "default_title": "Schedule Helper",
