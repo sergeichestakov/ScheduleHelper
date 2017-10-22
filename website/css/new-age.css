@@ -334,4 +334,14 @@ footer {
     display: none;
     padding-top: 80px;
   }
+  header.masthead {
+    padding-top: 85px;
+  }
+}
+
+/* Thanks Apple */
+@media(max-width: 330px){
+  #bottom-text {
+    right:0;
+  }
 }
