@@ -37,4 +37,4 @@ Simply hover over the name of the class to see!
 
 ## How to install
 
-Schedule Helper will be available for download on the Chrome Extension Store when it is released.
+https://getschedulehelper.com/
