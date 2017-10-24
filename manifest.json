@@ -1,13 +1,14 @@
 {
   "manifest_version": 2,
   "name": "UC Davis Schedule Helper",
-  "version": "1.1",
+  "version": "1.2",
   "description": "Finds conflicts in your schedule, so you don't have to.",
   "web_accessible_resources" : ["data/data.js","src/conflict.js", "libs/balloon.min.css", "src/inlineSearch.js", "src/textSearch.js"],
  	"content_scripts": [
  		{
  			"matches": [
- 				"https://my.ucdavis.edu/schedulebuilder/index.cfm?termCode=*"
+ 				"https://my.ucdavis.edu/schedulebuilder/index.cfm?termCode=*",
+        "https://students.my.ucdavis.edu/schedulebuilder/index.cfm?termCode=*"
  			],
  			"js": ["libs/jquery-3.2.1.min.js","src/inject.js"]
  		}
