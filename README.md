@@ -1,5 +1,5 @@
 # ScheduleHelper
-Chrome extension for UC Davis students that simplifies building your schedule by finding potential conflicts ahead of time and color coding classes that fit into your schedule and those that don't.
+[Chrome](https://chrome.google.com/webstore/detail/uc-davis-schedule-helper/eaiohlimbkhifknljidephnpadioaiab?hl=en-US&gl=US "Chrome Web Store") and [Firefox](https://addons.mozilla.org/en-US/firefox/addon/schedule-helper/ "Firefox Add Ons") extension for UC Davis students that simplifies building your schedule by finding potential conflicts ahead of time and color coding classes that fit into your schedule and those that don't.
 Conveniently displays the ratings of each professor with a direct link to their rate my professor page.
 
 ## Features:
