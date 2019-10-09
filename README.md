@@ -1,8 +1,28 @@
-# ScheduleHelper
-Chrome extension for UC Davis students that simplifies building your schedule by finding potential conflicts ahead of time and color coding classes that fit into your schedule and those that don't.
-Conveniently displays the ratings of each professor with a direct link to their rate my professor page.
+ # ScheduleHelper
+ 
+<p align="center">
+   <a aria-label="Number of Users" href="https://chrome.google.com/webstore/detail/uc-davis-schedule-helper/eaiohlimbkhifknljidephnpadioaiab?hl=en-US&gl=US" target="_blank">
+    <img src="https://img.shields.io/badge/dynamic/json?label=Users&query=%24.message&color=informational&url=https%3A%2F%2Fschedule-helper-users-endpoint.herokuapp.com%2Fusers" />
+  </a>
+  <a aria-label="Rating" href="https://chrome.google.com/webstore/detail/uc-davis-schedule-helper/eaiohlimbkhifknljidephnpadioaiab?hl=en-US&gl=US" target="_blank">
+    <img src="https://img.shields.io/chrome-web-store/stars/eaiohlimbkhifknljidephnpadioaiab?label=Stars" />
+  </a>
+  <a aria-label="Number of Ratings" href="https://chrome.google.com/webstore/detail/uc-davis-schedule-helper/eaiohlimbkhifknljidephnpadioaiab?hl=en-US&gl=US" target="_blank">
+    <img src="https://img.shields.io/chrome-web-store/rating-count/eaiohlimbkhifknljidephnpadioaiab?label=Ratings&color=orange" />
+  </a>
+</p>
 
-## Features:
+<p align="center">
+    <a aria-label="Schedule Helper" href="https://getschedulehelper.com" target="_blank">
+      <img src="assets/schedulehelper.png" width="200" height="200" />
+    </a>
+</p>
+
+## How it works
+
+ScheduleHelper simplifies building your schedule by finding potential conflicts ahead of time and color coding classes in search results based on whether or not they fit in your schedule.
+
+It also conveniently displays the ratings of each professor with a direct link to their rate my professor page.
 
 ### Color Coding
 * **Blue** - Currently in your schedule
@@ -19,7 +39,7 @@ their ratings are right there next to their name. Better yet, their name now lin
 In addition to marking conflicting classes as red, Schedule Helper tells you which one of your selected classes they conflict with.
 Simply hover over the name of the class to see!
 
-## Screenshots:
+## Screenshots
 
 #### Without Schedule Helper:
 
