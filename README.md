@@ -2,7 +2,7 @@
  
 <p align="center">
    <a aria-label="Number of Users" href="https://chrome.google.com/webstore/detail/uc-davis-schedule-helper/eaiohlimbkhifknljidephnpadioaiab?hl=en-US&gl=US" target="_blank">
-    <img src="https://img.shields.io/badge/dynamic/json?label=Users&query=%24.message&color=informational&url=https%3A%2F%2Fschedule-helper-users-endpoint.herokuapp.com%2Fusers" />
+    <img src="https://img.shields.io/badge/dynamic/json?color=informational&label=Users&query=%24.message&url=http%3A%2F%2Fsergeichestakov.pythonanywhere.com%2Fusers" />
   </a>
   <a aria-label="Rating" href="https://chrome.google.com/webstore/detail/uc-davis-schedule-helper/eaiohlimbkhifknljidephnpadioaiab?hl=en-US&gl=US" target="_blank">
     <img src="https://img.shields.io/chrome-web-store/stars/eaiohlimbkhifknljidephnpadioaiab?label=Stars" />
